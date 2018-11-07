@@ -5,7 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9be17eb1aaa16fd600d7a583bc092a9a99c836ae
 
 
 public class MainActivity extends AppCompatActivity
