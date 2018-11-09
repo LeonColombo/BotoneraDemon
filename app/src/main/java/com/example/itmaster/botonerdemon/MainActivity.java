@@ -3,12 +3,9 @@ package com.example.itmaster.botonerdemon;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-<<<<<<< HEAD
-=======
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
->>>>>>> bd64b8b919056d4884bfdd5aa70bcab31810ae60
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +21,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity
 {
-    private Button btnApleno, btnExtremo, btnTanBuena, btnRisa;
+    private Button btnApleno, btnExtremo, btnTanBuena, btnRisa, btnEn, btnEl, btnSitua, btnInfierno, btnLarira, btnSi, btnNo;
     private MediaPlayer playerApleno, playerExtremo, playerTanBuena, playerRisa;
     Button buttonStart, buttonStop, buttonPlayLastRecordAudio,
             buttonStopPlayingRecording ;
@@ -44,11 +41,14 @@ public class MainActivity extends AppCompatActivity
         btnExtremo = findViewById(R.id.btnExtremo);
         btnTanBuena = findViewById(R.id.btnTanBuena);
         btnRisa = findViewById(R.id.btnRisa);
+        btnEn = findViewById(R.id.btnEn);
+        btnEl = findViewById(R.id.btnEl);
+        btnSitua = findViewById(R.id.btnSitua);
+        btnInfierno = findViewById(R.id.btnInfierno);
+        btnLarira = findViewById(R.id.btnLarira);
+        btnSi = findViewById(R.id.btnSi);
+        btnNo = findViewById(R.id.btnNo);
 
-<<<<<<< HEAD
-        
-
-=======
         buttonStart = (Button) findViewById(R.id.btnStart);
         buttonStop = (Button) findViewById(R.id.btnStop);
         buttonPlayLastRecordAudio = (Button) findViewById(R.id.btnPlay);
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity
     private void requestPermission() {
         ActivityCompat.requestPermissions(MainActivity.this, new
                 String[]{WRITE_EXTERNAL_STORAGE, RECORD_AUDIO}, RequestPermissionCode);
->>>>>>> bd64b8b919056d4884bfdd5aa70bcab31810ae60
+
     }
 
     @Override
@@ -230,8 +230,39 @@ public class MainActivity extends AppCompatActivity
         playerRisa = MediaPlayer.create(this,R.raw.risa);
         playerRisa.start();
     }
-
-
-
-
+    public void btnEnOnClink (View v)
+    {
+        playerRisa = MediaPlayer.create(this,R.raw.en);
+        playerRisa.start();
+    }
+    public void btnElOnClink (View v)
+    {
+        playerRisa = MediaPlayer.create(this,R.raw.el);
+        playerRisa.start();
+    }
+    public void btnSituaOnClink (View v)
+    {
+        playerRisa = MediaPlayer.create(this,R.raw.situa);
+        playerRisa.start();
+    }
+    public void btnInfiernoOnClink (View v)
+    {
+        playerRisa = MediaPlayer.create(this,R.raw.infierno);
+        playerRisa.start();
+    }
+    public void btnLariraOnClink (View v)
+    {
+        playerRisa = MediaPlayer.create(this,R.raw.larira);
+        playerRisa.start();
+    }
+    public void btnSiOnClink (View v)
+    {
+        playerRisa = MediaPlayer.create(this,R.raw.si);
+        playerRisa.start();
+    }
+    public void btnNoOnClink (View v)
+    {
+        playerRisa = MediaPlayer.create(this,R.raw.no);
+        playerRisa.start();
+    }
 }
