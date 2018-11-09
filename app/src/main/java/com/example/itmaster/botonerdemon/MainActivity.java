@@ -3,9 +3,12 @@ package com.example.itmaster.botonerdemon;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+<<<<<<< HEAD
+=======
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+>>>>>>> bd64b8b919056d4884bfdd5aa70bcab31810ae60
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,6 +45,10 @@ public class MainActivity extends AppCompatActivity
         btnTanBuena = findViewById(R.id.btnTanBuena);
         btnRisa = findViewById(R.id.btnRisa);
 
+<<<<<<< HEAD
+        
+
+=======
         buttonStart = (Button) findViewById(R.id.btnStart);
         buttonStop = (Button) findViewById(R.id.btnStop);
         buttonPlayLastRecordAudio = (Button) findViewById(R.id.btnPlay);
@@ -166,6 +173,7 @@ public class MainActivity extends AppCompatActivity
     private void requestPermission() {
         ActivityCompat.requestPermissions(MainActivity.this, new
                 String[]{WRITE_EXTERNAL_STORAGE, RECORD_AUDIO}, RequestPermissionCode);
+>>>>>>> bd64b8b919056d4884bfdd5aa70bcab31810ae60
     }
 
     @Override
@@ -222,5 +230,8 @@ public class MainActivity extends AppCompatActivity
         playerRisa = MediaPlayer.create(this,R.raw.risa);
         playerRisa.start();
     }
+
+
+
 
 }
