@@ -1,6 +1,7 @@
 package com.example.itmaster.botonerdemon;
 
 import android.media.MediaPlayer;
+import android.media.MediaRecorder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity
         btnExtremo = findViewById(R.id.btnExtremo);
         btnTanBuena = findViewById(R.id.btnTanBuena);
         btnRisa = findViewById(R.id.btnRisa);
+
+        
 
     }
 
@@ -45,5 +48,8 @@ public class MainActivity extends AppCompatActivity
         playerRisa = MediaPlayer.create(this,R.raw.risa);
         playerRisa.start();
     }
+
+
+
 
 }
