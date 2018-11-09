@@ -60,7 +60,7 @@
         app:layout_constraintVertical_bias="0.589" />
 
     <Button
-        android:id="@+id/btnSitua4"
+        android:id="@+id/btnLarira"
 
         android:layout_width="151dp"
         android:layout_height="60dp"
@@ -70,7 +70,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/buttonshape"
-        android:onClick="btnInfiernoOnClink"
+        android:onClick="btnLariraOnClink"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
         android:shadowDy="0"
@@ -190,7 +190,7 @@
         app:layout_constraintVertical_bias="0.794" />
 
     <Button
-        android:id="@+id/btnSI"
+        android:id="@+id/btnSi"
 
         android:layout_width="59dp"
         android:layout_height="53dp"
