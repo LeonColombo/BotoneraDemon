@@ -10,11 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
-
 import java.io.IOException;
 import java.util.Random;
-
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
@@ -23,14 +22,14 @@ public class MainActivity extends AppCompatActivity
 {
     private Button btnApleno, btnExtremo, btnTanBuena, btnRisa, btnEn, btnEl, btnSitua, btnInfierno, btnLarira, btnSi, btnNo;
     private MediaPlayer playerApleno, playerExtremo, playerTanBuena, playerRisa;
-    Button buttonStart, buttonStop, buttonPlayLastRecordAudio,
-            buttonStopPlayingRecording ;
-    String AudioSavePathInDevice = null;
-    MediaRecorder mediaRecorder ;
-    Random random ;
-    String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
+    private Button buttonStart, buttonStop;
+    private ImageButton buttonStopPlayingRecording, buttonPlayLastRecordAudio;
+    private String AudioSavePathInDevice = null;
+    private MediaRecorder mediaRecorder;
+    private Random random;
+    private String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
     public static final int RequestPermissionCode = 1;
-    MediaPlayer mediaPlayer ;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +48,10 @@ public class MainActivity extends AppCompatActivity
         btnSi = findViewById(R.id.btnSi);
         btnNo = findViewById(R.id.btnNo);
 
-        buttonStart = (Button) findViewById(R.id.btnStart);
-        buttonStop = (Button) findViewById(R.id.btnStop);
-        buttonPlayLastRecordAudio = (Button) findViewById(R.id.btnPlay);
-        buttonStopPlayingRecording = (Button)findViewById(R.id.btnStopPlay);
+        buttonStart = findViewById(R.id.btnStart);
+        buttonStop = findViewById(R.id.btnStop);
+        buttonPlayLastRecordAudio = findViewById(R.id.btnPlay);
+        buttonStopPlayingRecording = findViewById(R.id.btnStopPlay);
 
         buttonStop.setEnabled(false);
         buttonPlayLastRecordAudio.setEnabled(false);
@@ -74,6 +73,7 @@ public class MainActivity extends AppCompatActivity
 
                     try {
                         mediaRecorder.prepare();
+                        mediaRecorder.setOutputFile();
                         mediaRecorder.start();
                     } catch (IllegalStateException e) {
                         // TODO Auto-generated catch block
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
                     buttonStart.setEnabled(false);
                     buttonStop.setEnabled(true);
 
-                    Toast.makeText(MainActivity.this, "Recording started",
+                    Toast.makeText(MainActivity.this, "GRABANDO",
                             Toast.LENGTH_LONG).show();
                 } else {
                     requestPermission();
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity
                 buttonStart.setEnabled(true);
                 buttonStopPlayingRecording.setEnabled(false);
 
-                Toast.makeText(MainActivity.this, "Recording Completed",
+                Toast.makeText(MainActivity.this, "GRABACION FINALIZADA",
                         Toast.LENGTH_LONG).show();
             }
         });
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity
                 }
 
                 mediaPlayer.start();
-                Toast.makeText(MainActivity.this, "Recording Playing",
+                Toast.makeText(MainActivity.this, "REPRODUCIENDO",
                         Toast.LENGTH_LONG).show();
             }
         });
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void MediaRecorderReady(){
-        mediaRecorder=new MediaRecorder();
+        mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
