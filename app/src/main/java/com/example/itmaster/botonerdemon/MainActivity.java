@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity
 {
     private Button btnApleno, btnExtremo, btnTanBuena, btnRisa, btnEn, btnEl, btnSitua, btnInfierno, btnLarira, btnSi, btnNo;
     private MediaPlayer playerApleno, playerExtremo, playerTanBuena, playerRisa;
-    private Button buttonStart, buttonStop;
-    private ImageButton buttonStopPlayingRecording, buttonPlayLastRecordAudio;
+    private ImageButton buttonStopPlayingRecording, buttonPlayLastRecordAudio, buttonStart, buttonStop;
     private String AudioSavePathInDevice = null;
     private MediaRecorder mediaRecorder;
     private Random random;
@@ -206,6 +205,8 @@ public class MainActivity extends AppCompatActivity
         return result == PackageManager.PERMISSION_GRANTED &&
                 result1 == PackageManager.PERMISSION_GRANTED;
     }
+
+
 
 
 
