@@ -81,10 +81,8 @@ public class MainActivity extends AppCompatActivity
                     try {
                         final Animation myAnim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.bounce);
 
-                        // Use bounce interpolator with amplitude 0.2 and frequency 20
-
-
                         buttonStart.startAnimation(myAnim);
+
                         mediaRecorder.prepare();
                         mediaRecorder.start();
 
@@ -111,7 +109,10 @@ public class MainActivity extends AppCompatActivity
         buttonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                final Animation myAnim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.bounce);
+
+                buttonStop.startAnimation(myAnim);
+
                 mediaRecorder.stop();
                 buttonStop.setEnabled(false);
                 buttonPlayLastRecordAudio.setEnabled(true);
@@ -127,6 +128,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) throws IllegalArgumentException,
                     SecurityException, IllegalStateException {
+
+                final Animation myAnim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.bounce);
+
+                buttonPlayLastRecordAudio.startAnimation(myAnim);
 
                 buttonStop.setEnabled(false);
                 buttonStart.setEnabled(false);
@@ -149,6 +154,10 @@ public class MainActivity extends AppCompatActivity
         buttonStopPlayingRecording.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final Animation myAnim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.bounce);
+
+                buttonStopPlayingRecording.startAnimation(myAnim);
+
                 buttonStop.setEnabled(false);
                 buttonStart.setEnabled(true);
                 buttonStopPlayingRecording.setEnabled(false);
