@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity
         return result == PackageManager.PERMISSION_GRANTED &&
                 result1 == PackageManager.PERMISSION_GRANTED;
     }
-    private void sendWhatsAppAudio(){
+    public void sendWhatsAppAudio(){
         try {
             //Copy file to external ExternalStorage.
             String mediaPath = copyFiletoExternalStorage(1,AudioSavePathInDevice);
@@ -250,7 +250,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private String copyFiletoExternalStorage(int resourceId, String resourceName){
+    public String copyFiletoExternalStorage(int resourceId, String resourceName){
         String pathSDCard = Environment.getExternalStorageDirectory() + "/Android/data/" + resourceName;
         try{
             InputStream in = getResources().openRawResource(resourceId);
