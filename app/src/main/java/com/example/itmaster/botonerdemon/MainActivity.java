@@ -231,6 +231,46 @@ public class MainActivity extends AppCompatActivity
         return result == PackageManager.PERMISSION_GRANTED &&
                 result1 == PackageManager.PERMISSION_GRANTED;
     }
+    private void sendWhatsAppAudio(){
+        try {
+            //Copy file to external ExternalStorage.
+            String mediaPath = copyFiletoExternalStorage(1,AudioSavePathInDevice);
+
+            Intent shareMedia = new Intent(Intent.ACTION_SEND);
+            //set WhatsApp application.
+            shareMedia.setPackage("com.whatsapp");
+            shareMedia.setType("audio/*");
+            //set path of media file in ExternalStorage.
+            shareMedia.putExtra(Intent.EXTRA_STREAM, Uri.parse(mediaPath));
+            startActivity(Intent.createChooser(shareMedia, "Compartiendo archivo."));
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Whatsapp no se encuentra instalado", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private String copyFiletoExternalStorage(int resourceId, String resourceName){
+        String pathSDCard = Environment.getExternalStorageDirectory() + "/Android/data/" + resourceName;
+        try{
+            InputStream in = getResources().openRawResource(resourceId);
+            FileOutputStream out = null;
+            out = new FileOutputStream(pathSDCard);
+            byte[] buff = new byte[1024];
+            int read = 0;
+            try {
+                while ((read = in.read(buff)) > 0) {
+                    out.write(buff, 0, read);
+                }
+            } finally {
+                in.close();
+                out.close();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return  pathSDCard;
+    }
 
 
 
