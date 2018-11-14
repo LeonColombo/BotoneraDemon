@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity
         btnSi = findViewById(R.id.btnSi);
         btnNo = findViewById(R.id.btnNo);
         btnDisney = findViewById(R.id.btnDisney);
+        btnCompartir = findViewById(R.id.btnCompartir);
 
         buttonStart = findViewById(R.id.btnStart);
         buttonStop = findViewById(R.id.btnStop);
@@ -246,13 +247,13 @@ public class MainActivity extends AppCompatActivity
 
             Intent shareMedia = new Intent(Intent.ACTION_SEND);
             //set WhatsApp application.
-            shareMedia.setPackage("com.whatsapp");
+            //shareMedia.setPackage("com.whatsapp");
             shareMedia.setType("audio/*");
             //set path of media file in ExternalStorage.
             shareMedia.putExtra(Intent.EXTRA_STREAM, Uri.parse(mediaPath));
             startActivity(Intent.createChooser(shareMedia, "Compartiendo archivo."));
         } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Whatsapp no se encuentra instalado", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
