@@ -28,9 +28,10 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity
 {
-    private Button btnApleno, btnExtremo, btnTanBuena, btnRisa, btnEn, btnEl, btnSitua, btnInfierno, btnLarira, btnSi, btnNo;
+    private Button btnApleno, btnExtremo, btnTanBuena, btnRisa, btnEn, btnEl, btnSitua, btnInfierno, btnLarira, btnSi, btnNo,btnDisney;
     private MediaPlayer playerApleno, playerExtremo, playerTanBuena, playerRisa;
     private ImageButton buttonStopPlayingRecording, buttonPlayLastRecordAudio, buttonStart, buttonStop;
+    private Button btncompartir;
     private String AudioSavePathInDevice = null;
     private MediaRecorder mediaRecorder;
     private Random random;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity
         btnLarira = findViewById(R.id.btnLarira);
         btnSi = findViewById(R.id.btnSi);
         btnNo = findViewById(R.id.btnNo);
+        btnDisney = findViewById(R.id.btnDisney);
 
         buttonStart = findViewById(R.id.btnStart);
         buttonStop = findViewById(R.id.btnStop);
@@ -318,6 +320,11 @@ public class MainActivity extends AppCompatActivity
     public void btnNoOnClink (View v)
     {
         playerRisa = MediaPlayer.create(this,R.raw.no);
+        playerRisa.start();
+    }
+    public void btnDisneyOnClink (View v)
+    {
+        playerRisa = MediaPlayer.create(this,R.raw.disney);
         playerRisa.start();
     }
 }
