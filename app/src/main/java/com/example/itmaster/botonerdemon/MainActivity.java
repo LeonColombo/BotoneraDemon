@@ -79,7 +79,12 @@ public class MainActivity extends AppCompatActivity
                     MediaRecorderReady();
 
                     try {
+                        final Animation myAnim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.bounce);
 
+                        // Use bounce interpolator with amplitude 0.2 and frequency 20
+
+
+                        buttonStart.startAnimation(myAnim);
                         mediaRecorder.prepare();
                         mediaRecorder.start();
 
@@ -106,6 +111,7 @@ public class MainActivity extends AppCompatActivity
         buttonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                
                 mediaRecorder.stop();
                 buttonStop.setEnabled(false);
                 buttonPlayLastRecordAudio.setEnabled(true);
