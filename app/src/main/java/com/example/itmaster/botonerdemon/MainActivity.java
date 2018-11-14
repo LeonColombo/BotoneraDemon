@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity
 
                 mediaPlayer = new MediaPlayer();
                 try {
-                    mediaPlayer.setDataSource("AudioRecording.3gp");
+                    mediaPlayer.setDataSource(AudioSavePathInDevice);
                     mediaPlayer.prepare();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
-        mediaRecorder.setOutputFile("AudioRecording.3gp");
+        mediaRecorder.setOutputFile(AudioSavePathInDevice);
     }
 
     public String CreateRandomAudioFileName(int string){
@@ -222,9 +222,6 @@ public class MainActivity extends AppCompatActivity
         return result == PackageManager.PERMISSION_GRANTED &&
                 result1 == PackageManager.PERMISSION_GRANTED;
     }
-
-
-
 
 
 
