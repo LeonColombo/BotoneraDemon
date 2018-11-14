@@ -66,6 +66,13 @@ public class MainActivity extends AppCompatActivity
         buttonPlayLastRecordAudio.setEnabled(false);
         buttonStopPlayingRecording.setEnabled(false);
 
+        btncompartir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendWhatsAppAudio();
+            }
+        });
+
         random = new Random();
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
